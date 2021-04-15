@@ -1,6 +1,6 @@
 const addItems = document.querySelector('.add-items');
 const itemsList = document.querySelector('.plates');
-const items = [];
+const items = JSON.parse(sessionStorage.getItem('items')) || [];
 
 function addItem(e) {
   e.preventDefault();
@@ -13,6 +13,7 @@ function addItem(e) {
 
   items.push(item);
   populateList(items, itemsList);
+  sessionStorage.setItem('items', JSON.stringify(items));
   // Form elements have reset method - clears fields
   this.reset();
 }
@@ -33,3 +34,5 @@ function populateList(plates = [], platesList) {
 }
 
 addItems.addEventListener('submit', addItem);
+
+populateList(items, itemsList);

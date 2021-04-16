@@ -44,7 +44,6 @@ function toggleDone(e) {
 
 addItems.addEventListener('submit', addItem);
 // Event delegation: listening on ul rather than input
-// Rather than listening to event/change on checkboxes directly, look for parent on page at time of listening
 itemsList.addEventListener('click', toggleDone);
 
 populateList(items, itemsList);
